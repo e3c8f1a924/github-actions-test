@@ -13,5 +13,5 @@ jobs:
               owner: 'e3c8f1a924',
               repo: 'github-actions-test',
               message: 'Update test.txt',
-              content: 'success'
+              content: 'bXkgbmV3IGZpbGUgY29udGVudHM='
             });
