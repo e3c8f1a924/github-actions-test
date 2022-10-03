@@ -9,9 +9,9 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
-            github.rest.issues.addLabels({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              labels: ['Triage']
-            })
+            await github.request('PUT /repos/e3c8f1a924/github-actions-test/contents/test.txt', {
+              owner: 'e3c8f1a924',
+              repo: 'github-actions-test',
+              message: 'Update test.txt',
+              content: 'success'
+            });
