@@ -1,6 +1,6 @@
 on:
-  issues:
-    types: [opened]
+  push:
+    branches: [ "main" ]
 
 jobs:
   apply-label:
@@ -9,6 +9,8 @@ jobs:
       - uses: actions/github-script@v6
         with:
           script: |
+            const script = require('./index.js');
+            await script({ github, context, core });
             await github.request('PUT /repos/e3c8f1a924/github-actions-test/contents/test.txt', {
               owner: 'e3c8f1a924',
               repo: 'github-actions-test',
